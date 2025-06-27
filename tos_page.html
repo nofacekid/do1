@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>do1</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Fira+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://cdn.discordapp.com/avatars/1138739169453562460/7e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e.webp" />
+</head>
+<body>
+    <div class="main-glass">
+        <div class="window-header">
+            <span class="mac-dot red"></span>
+            <span class="mac-dot yellow"></span>
+            <span class="mac-dot green"></span>
+            <span class="window-title">do1</span>
+        </div>
+        <div class="window-nav">
+            <button class="nav-btn active" onclick="showSection('terms')" title="Terms of Service">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h2"/></svg>
+                <span class="nav-btn-text">Terms</span>
+            </button>
+            <button class="nav-btn" onclick="showSection('privacy')" title="Privacy Policy">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 5.25-3.5 9.74-7 11-3.5-1.26-7-5.75-7-11V7l7-4z"/></svg>
+                <span class="nav-btn-text">Policy</span>
+            </button>
+            <button class="nav-btn" onclick="showSection('about')" title="About">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <span class="nav-btn-text">About</span>
+            </button>
+        </div>
+        <div class="window-sections">
+            <div id="section-terms" class="mini-window fade-in">
+                <div class="mini-title">Terms of Service</div>
+                <div class="mini-content">
+                    <ol>
+                        <li><b>Respect and Behavior:</b> All users must treat each other with respect and courtesy. Harassment, hate speech, or any form of abuse will not be tolerated.</li>
+                        <li><b>Legal Use:</b> You may not use this bot for any illegal or unauthorized purposes. All actions must comply with Discord's Terms of Service and Community Guidelines.</li>
+                        <li><b>Privacy:</b> We value your privacy. The bot only processes information necessary for its operation and does not store personal data outside Discord.</li>
+                        <li><b>Content Responsibility:</b> You are solely responsible for any content you post, share, or generate using the bot. The bot creators are not liable for user-generated content.</li>
+                        <li><b>Bot Availability:</b> We strive to keep the bot online and functional, but we do not guarantee uninterrupted service. The bot may be updated, modified, or taken offline at any time without notice.</li>
+                        <li><b>Changes to Terms:</b> These terms may be updated at any time. Continued use of the bot after changes means you accept the new terms.</li>
+                    </ol>
+                </div>
+            </div>
+            <div id="section-privacy" class="mini-window" style="display:none;">
+                <div class="mini-title">Privacy Policy</div>
+                <div class="mini-content">
+                    <ul>
+                        <li><b>Data Collection:</b> The bot does not collect or store personal data outside Discord. Only information required for command execution and moderation is processed.</li>
+                        <li><b>Message Content:</b> The bot may read messages only to respond to commands or for moderation purposes. No message content is stored or shared externally.</li>
+                        <li><b>Third Parties:</b> No data is shared with third parties. All processing is done within Discord's infrastructure.</li>
+                        <li><b>Security:</b> We take reasonable measures to protect your data, but cannot guarantee absolute security due to the nature of online services.</li>
+                        <li><b>Consent:</b> By using the bot, you consent to the processing of your data as described in this policy and in accordance with Discord's API terms.</li>
+                        <li><b>Contact:</b> For any privacy-related questions or requests, please contact the server administrator.</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="section-about" class="mini-window" style="display:none;">
+                <div class="mini-title">About This Bot</div>
+                <div class="mini-content">
+                    <p>This Discord bot was created to help moderate and enhance your server experience. It provides moderation tools, user info, and more — all with a stylish interface and privacy in mind.</p>
+                    <p>Developer: <a href="https://discord.com/users/1017888152381304882" class="dev-link dev-link-white" target="_blank">do1 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="dev-check"><path fill="#1EFF00" d="M16 6.83512L13.735 4.93512L13.22 2.02512H10.265L8 0.120117L5.735 2.02012H2.78L2.265 4.93012L0 6.83512L1.48 9.39512L0.965 12.3051L3.745 13.3151L5.225 15.8751L8.005 14.8651L10.785 15.8751L12.265 13.3151L15.045 12.3051L14.53 9.39512L16.01 6.83512H16ZM6.495 12.4051L2.79 8.69512L4.205 7.28012L6.495 9.57512L11.29 4.78012L12.705 6.19512L6.5 12.4001L6.495 12.4051Z"></path></svg></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showSection(section) {
+            document.querySelectorAll('.mini-window').forEach(win => win.style.display = 'none');
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('section-' + section).style.display = '';
+            document.getElementById('section-' + section).classList.add('fade-in');
+            setTimeout(()=>{
+                document.getElementById('section-' + section).classList.remove('fade-in');
+            }, 400);
+            document.querySelector('.nav-btn[onclick*="' + section + '"]').classList.add('active');
+        }
+    </script>
+</body>
+</html> 
